@@ -17,6 +17,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -83,6 +84,23 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerHeaderHeading: {
         paddingLeft: 10
+    },
+    navMenuUl: {
+        listStyle: 'none',
+        display: 'flex'
+    },
+    navMenuLi: {
+        "&:nth-child(1)": {
+            marginRight: '1rem'
+        }
+    },
+    navMenu: {
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
+    navMenuLink: {
+        textDecoration: 'none',
+        color: '#fff'
     }
 }));
 
@@ -108,17 +126,26 @@ export default function PersistentDrawerLeft() {
                     [classes.appBarShift]: open,
                 })}
             >
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        className={clsx(classes.menuButton, open && classes.hide)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <div className={classes.mainLogo}></div>
+                <Toolbar className={classes.navMenu}>
+                    <div className={classes.navMenuUl}>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={handleDrawerOpen}
+                            edge="start"
+                            className={clsx(classes.menuButton, open && classes.hide)}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <div className={classes.mainLogo}></div>
+                    </div>
+
+                    <ul className={classes.navMenuUl}>
+                        <li className={classes.navMenuLi}><Link className={classes.navMenuLink} to="/signin">Signin</Link></li>
+                        <li className={classes.navMenuLi}><Link className={classes.navMenuLink} to="/signup">Signup</Link></li>
+                    </ul>
+
+
                 </Toolbar>
             </AppBar>
             <Drawer
