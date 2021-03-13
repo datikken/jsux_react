@@ -7,7 +7,9 @@ export function Home()
 {
     return (
         <>
-            <Drawer/>
+            <Drawer>
+                <h1>Motherfuck</h1>
+            </Drawer>
         </>
     );
 }
