@@ -137,7 +137,7 @@ export default function PersistentDrawerLeft({ children }) {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <div className={classes.mainLogo}></div>
+                        <Link to="/" className={classes.mainLogo}></Link>
                     </div>
 
                     <ul className={classes.navMenuUl}>

@@ -29460,7 +29460,8 @@ function PersistentDrawerLeft(_ref) {
             edge: "start",
             className: (0,clsx__WEBPACK_IMPORTED_MODULE_1__.default)(classes.menuButton, open && classes.hide),
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_icons_Menu__WEBPACK_IMPORTED_MODULE_9__.default, {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+            to: "/",
             className: classes.mainLogo
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
@@ -29747,8 +29748,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Copyright__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Copyright */ "./resources/js/components/Copyright.js");
 /* harmony import */ var _components_Drawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Drawer */ "./resources/js/components/Drawer.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
 
 
 
