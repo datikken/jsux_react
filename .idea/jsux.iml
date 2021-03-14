@@ -116,6 +116,15 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/haydenpierce/class-finder" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nuwave/lighthouse" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mll-lab/laravel-graphql-playground" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/cloud-text-to-speech" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/grpc-gcp" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/gax" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/auth" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/protobuf" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/google/common-protos" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/grpc/grpc" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -5,6 +5,7 @@ import {Route, Switch} from "react-router-dom";
 import {Home} from '../pages/Home';
 import {Signin} from '../pages/Signin'
 import {Signup} from '../pages/Signup'
+import {Boards} from '../pages/Boards';
 import {createBrowserHistory} from "history";
 import {ApolloClient, InMemoryCache} from '@apollo/client';
 import {gql} from '@apollo/client';
@@ -35,13 +36,16 @@ function App() {
         <Router history={history}>
             <Switch>
                 <Route exact path="/">
-                    <Home/>
+                    <Home />
                 </Route>
                 <Route path="/signin">
-                    <Signin/>
+                    <Signin />
                 </Route>
                 <Route path="/signup">
-                    <Signup/>
+                    <Signup />
+                </Route>
+                <Route path="/boards">
+                    <Boards />
                 </Route>
             </Switch>
         </Router>

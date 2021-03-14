@@ -115,6 +115,15 @@
       <path value="$PROJECT_DIR$/vendor/haydenpierce/class-finder" />
       <path value="$PROJECT_DIR$/vendor/nuwave/lighthouse" />
       <path value="$PROJECT_DIR$/vendor/mll-lab/laravel-graphql-playground" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-text-to-speech" />
+      <path value="$PROJECT_DIR$/vendor/google/grpc-gcp" />
+      <path value="$PROJECT_DIR$/vendor/google/gax" />
+      <path value="$PROJECT_DIR$/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/vendor/google/protobuf" />
+      <path value="$PROJECT_DIR$/vendor/google/common-protos" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/grpc/grpc" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
