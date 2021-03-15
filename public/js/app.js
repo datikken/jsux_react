@@ -29976,7 +29976,8 @@ function Signup() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     name: "",
     email: "",
-    password: ""
+    password: "",
+    remember: true
   }),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
@@ -29985,9 +29986,10 @@ function Signup() {
   var handleChange = function handleChange(e) {
     var _e$target = e.target,
         id = _e$target.id,
-        value = _e$target.value;
+        value = _e$target.value,
+        checked = _e$target.checked;
     setState(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, _defineProperty({}, id, value));
+      return _objectSpread(_objectSpread({}, prevState), {}, _defineProperty({}, id, value ? value : checked));
     });
   };
 
@@ -30047,7 +30049,9 @@ function Signup() {
             id: "password"
           }, _defineProperty(_jsx2, "name", state.password), _defineProperty(_jsx2, "onChange", handleChange), _defineProperty(_jsx2, "autoComplete", "current-password"), _jsx2)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__.default, {
             control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_11__.default, {
-              value: "remember",
+              id: "remember",
+              defaultChecked: true,
+              onChange: handleChange,
               color: "primary"
             }),
             label: "Remember me"

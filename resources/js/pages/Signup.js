@@ -46,14 +46,15 @@ export function Signup() {
     const [state , setState] = useState({
         name: "",
         email : "",
-        password : ""
+        password : "",
+        remember: true
     });
 
     const handleChange = (e) => {
-        const {id , value} = e.target
+        const {id , value, checked} = e.target
         setState(prevState => ({
             ...prevState,
-            [id] : value
+            [id] : value ? value : checked
         }));
     }
 
@@ -113,7 +114,7 @@ export function Signup() {
                             autoComplete="current-password"
                         />
                         <FormControlLabel
-                            control={<Checkbox value="remember" color="primary"/>}
+                            control={<Checkbox id="remember" defaultChecked onChange={handleChange} color="primary"/>}
                             label="Remember me"
                         />
                         <Button
