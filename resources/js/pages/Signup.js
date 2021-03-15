@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -42,6 +42,27 @@ const useStyles = makeStyles((theme) => ({
 
 export function Signup() {
     const classes = useStyles();
+
+    const [state , setState] = useState({
+        name: "",
+        email : "",
+        password : ""
+    });
+
+    const handleChange = (e) => {
+        const {id , value} = e.target
+        setState(prevState => ({
+            ...prevState,
+            [id] : value
+        }));
+    }
+
+    let handle_signup = (e) => {
+        e.preventDefault();
+
+        console.log(state);
+    };
+
     return (
         <Drawer>
             <Container component="main" maxWidth="xs">
@@ -59,9 +80,22 @@ export function Signup() {
                             margin="normal"
                             required
                             fullWidth
+                            id="name"
+                            label="Name"
+                            name={state.name}
+                            onChange={handleChange}
+                            autoComplete="name"
+                            autoFocus
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
                             id="email"
                             label="Email Address"
-                            name="email"
+                            name={state.email}
+                            onChange={handleChange}
                             autoComplete="email"
                             autoFocus
                         />
@@ -74,6 +108,8 @@ export function Signup() {
                             label="Password"
                             type="password"
                             id="password"
+                            name={state.password}
+                            onChange={handleChange}
                             autoComplete="current-password"
                         />
                         <FormControlLabel
@@ -86,8 +122,9 @@ export function Signup() {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            onClick={handle_signup}
                         >
-                            Sign In
+                            Sign Up
                         </Button>
                         <Grid container>
                             <Grid item xs>
