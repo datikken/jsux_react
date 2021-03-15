@@ -45,4 +45,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class, 'author_id');
     }
+
+    public function boards(): HasMany
+    {
+        return $this->hasMany(User::class, 'owner_id');
+    }
+
+    public function cards(): HasMany
+    {
+        return $this->hasMany(Card::class, 'owner_id');
+    }
 }

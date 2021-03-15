@@ -16,11 +16,13 @@ class UsersTableSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
         $password = bcrypt('secret');
+
         User::create([
             'name'     => $faker->name,
             'email'    => 'graphql@test.com',
             'password' => $password,
         ]);
+
         for ($i = 0; $i < 10; ++$i) {
             User::create([
                 'name'     => $faker->name,
