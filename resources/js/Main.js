@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from "react-router-dom";
 import {Route, Switch} from "react-router-dom";
-import {Home} from '../pages/Home';
-import {Signin} from '../pages/Signin'
-import {Signup} from '../pages/Signup'
-import {Boards} from '../pages/Boards';
 import {createBrowserHistory} from "history";
+import {BrowserRouter as Router} from "react-router-dom";
 import {ApolloClient, InMemoryCache} from '@apollo/client';
+
 import {gql} from '@apollo/client';
+
+import {Signin} from './pages/Signin'
+import {Signup} from './pages/Signup'
+import {Boards} from './pages/Boards';
+import {Home} from './pages/Home';
 
 const history = createBrowserHistory();
 const client = new ApolloClient({
@@ -31,7 +33,7 @@ client
 })
 .then(result => console.log(result));
 
-function App() {
+function Main() {
     return (
         <Router history={history}>
             <Switch>
@@ -39,21 +41,21 @@ function App() {
                     <Home />
                 </Route>
                 <Route path="/signin">
-                    <Signin />
+                    <Signin/>
                 </Route>
                 <Route path="/signup">
-                    <Signup />
+                    <Signup/>
                 </Route>
                 <Route path="/boards">
-                    <Boards />
+                    <Boards/>
                 </Route>
             </Switch>
         </Router>
     );
 }
 
-export default App;
+export default Main;
 
 if (document.getElementById('app')) {
-    ReactDOM.render(<App/>, document.getElementById('app'));
+    ReactDOM.render(<Main/>, document.getElementById('app'));
 }

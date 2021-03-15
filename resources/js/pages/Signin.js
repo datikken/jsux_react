@@ -42,6 +42,11 @@ const useStyles = makeStyles((theme) => ({
 
 export function Signin() {
     const classes = useStyles();
+
+    let handle_signin = () => {
+        alert('attempt to sign in')
+    }
+
     return (
         <Drawer>
             <Container component="main" maxWidth="xs">
@@ -86,6 +91,7 @@ export function Signin() {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            onClick={handle_signin}
                         >
                             Sign In
                         </Button>

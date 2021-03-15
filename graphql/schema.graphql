@@ -14,16 +14,15 @@ type Query {
     article(id: Int! @eq): Article @find
     userBoards(owner_id: ID! @where): [Board!]
     @all
-    @can(ability: "viewOwnedBoards", find: "owner_id", model: "App\\Models\\User")
+    @can(ability: "viewOwnedBoards", find: "owner_id", model: "Main\\Models\\User")
     board(id: ID! @eq): Board @find
     me: User @auth
 }
 
-
 type Mutation {
     cardAdd(input: CardAddInput @spread): Card!
     @create
-    @can(ability: "createCard", model: "App\\CardList", find: "list_id")
+    @can(ability: "createCard", model: "Main\\CardList", find: "list_id")
     cardDelete(id: ID!): Card @delete @can(ability: "delete", find: "id")
     cardUpdate(id: ID!, title: String): Card
     @update
