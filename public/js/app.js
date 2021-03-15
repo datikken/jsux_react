@@ -30848,6 +30848,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./Main */ "./resources/js/Main.js");
 
+console.log('test workflow');
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
