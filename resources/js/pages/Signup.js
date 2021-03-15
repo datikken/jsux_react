@@ -42,12 +42,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SIGN_UP = gql`
-  mutation Register($email: String!, $password: String!, $name: String!) {
-    register(email: $email, password: $password, name: $name) {
-        id
-        name
-        email
-       }
+    mutation Register($email: String!, $password: String!, $name: String!) {
+        register(email: $email, password: $password, name: $name) {
+            id
+            name
+            email
+        }
     }
 `;
 

@@ -13,6 +13,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Copyright} from '../components/Copyright';
 import Drawer from '../components/Drawer';
+import {gql, useMutation} from "@apollo/client";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -40,8 +41,18 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const SIGN_IN = gql`
+    mutation Login($email: String!, $password: String!) {
+        login(email: $email, password: $password) {
+            name
+            email
+        }
+    }
+`;
+
 export function Signin() {
     const classes = useStyles();
+    const [login] = useMutation(SIGN_IN);
 
     const [state , setState] = useState({
         email : "",
@@ -58,8 +69,10 @@ export function Signin() {
 
     let handle_signin = (e) => {
         e.preventDefault();
-
-        console.log(state);
+        login({ variables: state })
+            .then(data => {
+                console.warn(data, 'user data')
+            })
     };
 
     return (
