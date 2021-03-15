@@ -4,8 +4,9 @@ import {Route, Switch} from "react-router-dom";
 import {createBrowserHistory} from "history";
 import {BrowserRouter as Router} from "react-router-dom";
 import {ApolloClient, InMemoryCache} from '@apollo/client';
+import {ApolloProvider} from '@apollo/client';
 
-import { gql, useMutation } from '@apollo/client';
+import {gql} from '@apollo/client';
 
 import {Signin} from './pages/Signin'
 import {Signup} from './pages/Signup'
@@ -18,49 +19,26 @@ const client = new ApolloClient({
     cache: new InMemoryCache()
 });
 
-client
-.query({
-    query: gql`
-        query articles {
-            articles {
-                title,
-                author {
-                    email
-                }
-            }
-        }
-    `
-})
-.then(result => console.log(result));
-
-const ADD_TODO = gql`
-    mutation register($type: String!) {
-        register(type: $type) {
-            name,
-            email,
-            password
-        }
-    }
-`;
-
 function Main() {
     return (
-        <Router history={history}>
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route path="/signin">
-                    <Signin/>
-                </Route>
-                <Route path="/signup">
-                    <Signup/>
-                </Route>
-                <Route path="/boards">
-                    <Boards/>
-                </Route>
-            </Switch>
-        </Router>
+        <ApolloProvider client={client}>
+            <Router history={history}>
+                <Switch>
+                    <Route exact path="/">
+                        <Home/>
+                    </Route>
+                    <Route path="/signin">
+                        <Signin/>
+                    </Route>
+                    <Route path="/signup">
+                        <Signup/>
+                    </Route>
+                    <Route path="/boards">
+                        <Boards/>
+                    </Route>
+                </Switch>
+            </Router>
+        </ApolloProvider>
     );
 }
 

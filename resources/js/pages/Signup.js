@@ -13,6 +13,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Copyright} from '../components/Copyright';
 import Drawer from '../components/Drawer';
+import {gql, useMutation} from '@apollo/client';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -40,26 +41,38 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const SIGN_UP = gql`
+  mutation Register($email: String!, $password: String!, $name: String!) {
+    register(email: $email, password: $password, name: $name) {
+        id
+        name
+        email
+       }
+    }
+`;
+
 export function Signup() {
     const classes = useStyles();
+    const [register] = useMutation(SIGN_UP);
 
-    const [state , setState] = useState({
+    const [state, setState] = useState({
         name: "",
-        email : "",
-        password : "",
+        email: "",
+        password: "",
         remember: true
     });
 
     const handleChange = (e) => {
-        const {id , value, checked} = e.target
+        const {id, value, checked} = e.target
         setState(prevState => ({
             ...prevState,
-            [id] : value ? value : checked
+            [id]: value ? value : checked
         }));
     }
 
     let handle_signup = (e) => {
         e.preventDefault();
+        register({ variables: state });
 
         console.log(state);
     };
