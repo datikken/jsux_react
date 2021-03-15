@@ -1,5 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
-Route::view('/{any}', 'welcome')->where('any', '.*');
+Route::get('/', function (Request $request) {
+    $path = $request->path();
+
+    if($path != 'nova') {
+        return view('welcome');
+    }
+});
