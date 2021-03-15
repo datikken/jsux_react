@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -43,9 +43,24 @@ const useStyles = makeStyles((theme) => ({
 export function Signin() {
     const classes = useStyles();
 
-    let handle_signin = () => {
-        alert('attempt to sign in')
+    const [state , setState] = useState({
+        email : "",
+        password : ""
+    });
+
+    const handleChange = (e) => {
+        const {id , value} = e.target
+        setState(prevState => ({
+            ...prevState,
+            [id] : value
+        }));
     }
+
+    let handle_signin = (e) => {
+        e.preventDefault();
+
+        console.log(state);
+    };
 
     return (
         <Drawer>
@@ -69,6 +84,8 @@ export function Signin() {
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            value={state.email}
+                            onChange={handleChange}
                         />
                         <TextField
                             variant="outlined"
@@ -80,6 +97,8 @@ export function Signin() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            value={state.password}
+                            onChange={handleChange}
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary"/>}

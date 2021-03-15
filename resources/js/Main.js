@@ -5,7 +5,7 @@ import {createBrowserHistory} from "history";
 import {BrowserRouter as Router} from "react-router-dom";
 import {ApolloClient, InMemoryCache} from '@apollo/client';
 
-import {gql} from '@apollo/client';
+import { gql, useMutation } from '@apollo/client';
 
 import {Signin} from './pages/Signin'
 import {Signup} from './pages/Signup'
@@ -32,6 +32,16 @@ client
     `
 })
 .then(result => console.log(result));
+
+const ADD_TODO = gql`
+    mutation register($type: String!) {
+        register(type: $type) {
+            name,
+            email,
+            password
+        }
+    }
+`;
 
 function Main() {
     return (

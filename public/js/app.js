@@ -29116,7 +29116,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Boards__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Boards */ "./resources/js/pages/Boards.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/pages/Home.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
+var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -29143,6 +29143,7 @@ client.query({
 }).then(function (result) {
   return console.log(result);
 });
+var ADD_TODO = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_8__.gql)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    mutation register($type: String!) {\n        register(type: $type) {\n            name,\n            email,\n            password\n        }\n    }\n"])));
 
 function Main() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, {
@@ -29703,6 +29704,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Copyright__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Copyright */ "./resources/js/components/Copyright.js");
 /* harmony import */ var _components_Drawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Drawer */ "./resources/js/components/Drawer.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -29751,8 +29770,26 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__.default
 function Signin() {
   var classes = useStyles();
 
-  var handle_signin = function handle_signin() {
-    alert('attempt to sign in');
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    email: "",
+    password: ""
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+
+  var handleChange = function handleChange(e) {
+    var _e$target = e.target,
+        id = _e$target.id,
+        value = _e$target.value;
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, _defineProperty({}, id, value));
+    });
+  };
+
+  var handle_signin = function handle_signin(e) {
+    e.preventDefault();
+    console.log(state);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Drawer__WEBPACK_IMPORTED_MODULE_2__.default, {
@@ -29782,7 +29819,9 @@ function Signin() {
             label: "Email Address",
             name: "email",
             autoComplete: "email",
-            autoFocus: true
+            autoFocus: true,
+            value: state.email,
+            onChange: handleChange
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_9__.default, {
             variant: "outlined",
             margin: "normal",
@@ -29792,7 +29831,9 @@ function Signin() {
             label: "Password",
             type: "password",
             id: "password",
-            autoComplete: "current-password"
+            autoComplete: "current-password",
+            value: state.password,
+            onChange: handleChange
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_10__.default, {
             control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_11__.default, {
               value: "remember",

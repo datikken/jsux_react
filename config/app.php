@@ -173,6 +173,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // Main\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\NovaServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
     ],
