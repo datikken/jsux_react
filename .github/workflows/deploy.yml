@@ -72,9 +72,7 @@ jobs:
         run: |
           php artisan migrate
         env:
-          DB_HOST: ${{ job.services.mysql.host }}
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
-          DB_NAME: ${{ secrets.MYSQL_DATABASE }}
 
       - name: Install NPM dependencies
         run: npm install
