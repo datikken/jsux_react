@@ -13,7 +13,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Copyright} from '../components/Copyright';
 import Drawer from '../components/Drawer';
-import {gql, useMutation} from "@apollo/client";
+import {gql, useMutation} from '@apollo/client';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -41,38 +41,40 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const SIGN_IN = gql`
-    mutation Login($email: String!, $password: String!) {
-        login(email: $email, password: $password) {
+const SIGN_UP = gql`
+    mutation Register($email: String!, $password: String!, $name: String!) {
+        register(email: $email, password: $password, name: $name) {
+            id
             name
             email
         }
     }
 `;
 
-export function Signin() {
+export function SignupPage() {
     const classes = useStyles();
-    const [login] = useMutation(SIGN_IN);
+    const [register] = useMutation(SIGN_UP);
 
-    const [state , setState] = useState({
-        email : "",
-        password : ""
+    const [state, setState] = useState({
+        name: "",
+        email: "",
+        password: "",
+        remember: true
     });
 
     const handleChange = (e) => {
-        const {id , value} = e.target
+        const {id, value, checked} = e.target
         setState(prevState => ({
             ...prevState,
-            [id] : value
+            [id]: value ? value : checked
         }));
     }
 
-    let handle_signin = (e) => {
+    let handle_signup = (e) => {
         e.preventDefault();
-        login({ variables: state })
-            .then(data => {
-                console.warn(data, 'user data')
-            })
+        register({ variables: state });
+
+        console.log(state);
     };
 
     return (
@@ -84,7 +86,7 @@ export function Signin() {
                         <div className={classes.mainLogo}></div>
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Sign up
                     </Typography>
                     <form className={classes.form} noValidate>
                         <TextField
@@ -92,13 +94,24 @@ export function Signin() {
                             margin="normal"
                             required
                             fullWidth
+                            id="name"
+                            label="Name"
+                            name={state.name}
+                            onChange={handleChange}
+                            autoComplete="name"
+                            autoFocus
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
                             id="email"
                             label="Email Address"
-                            name="email"
+                            name={state.email}
+                            onChange={handleChange}
                             autoComplete="email"
                             autoFocus
-                            value={state.email}
-                            onChange={handleChange}
                         />
                         <TextField
                             variant="outlined"
@@ -109,12 +122,12 @@ export function Signin() {
                             label="Password"
                             type="password"
                             id="password"
-                            autoComplete="current-password"
-                            value={state.password}
+                            name={state.password}
                             onChange={handleChange}
+                            autoComplete="current-password"
                         />
                         <FormControlLabel
-                            control={<Checkbox value="remember" color="primary"/>}
+                            control={<Checkbox id="remember" defaultChecked onChange={handleChange} color="primary"/>}
                             label="Remember me"
                         />
                         <Button
@@ -123,9 +136,9 @@ export function Signin() {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
-                            onClick={handle_signin}
+                            onClick={handle_signup}
                         >
-                            Sign In
+                            Sign Up
                         </Button>
                         <Grid container>
                             <Grid item xs>

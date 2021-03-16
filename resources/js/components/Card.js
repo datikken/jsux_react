@@ -37,8 +37,6 @@ export default function OutlinedCard({ article }) {
                 <Typography className={classes.pos} variant="h5" component="h2">
                     {article.title}
                 </Typography>
-                {/*<Typography variant="body2" component="p">*/}
-                {/*</Typography>*/}
             </CardContent>
             <CardActions>
                 <Link to={'/article/' + article.id}>

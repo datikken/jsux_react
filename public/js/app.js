@@ -11755,6 +11755,274 @@ var Checkbox = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(functi
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/CircularProgress/CircularProgress.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/CircularProgress/CircularProgress.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "styles": () => (/* binding */ styles),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/utils */ "./node_modules/@material-ui/utils/esm/chainPropTypes.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+
+
+
+
+
+
+
+
+var SIZE = 44;
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'inline-block'
+    },
+
+    /* Styles applied to the root element if `variant="static"`. */
+    static: {
+      transition: theme.transitions.create('transform')
+    },
+
+    /* Styles applied to the root element if `variant="indeterminate"`. */
+    indeterminate: {
+      animation: '$circular-rotate 1.4s linear infinite'
+    },
+
+    /* Styles applied to the root element if `variant="determinate"`. */
+    determinate: {
+      transition: theme.transitions.create('transform')
+    },
+
+    /* Styles applied to the root element if `color="primary"`. */
+    colorPrimary: {
+      color: theme.palette.primary.main
+    },
+
+    /* Styles applied to the root element if `color="secondary"`. */
+    colorSecondary: {
+      color: theme.palette.secondary.main
+    },
+
+    /* Styles applied to the `svg` element. */
+    svg: {
+      display: 'block' // Keeps the progress centered
+
+    },
+
+    /* Styles applied to the `circle` svg path. */
+    circle: {
+      stroke: 'currentColor' // Use butt to follow the specification, by chance, it's already the default CSS value.
+      // strokeLinecap: 'butt',
+
+    },
+
+    /* Styles applied to the `circle` svg path if `variant="static"`. */
+    circleStatic: {
+      transition: theme.transitions.create('stroke-dashoffset')
+    },
+
+    /* Styles applied to the `circle` svg path if `variant="indeterminate"`. */
+    circleIndeterminate: {
+      animation: '$circular-dash 1.4s ease-in-out infinite',
+      // Some default value that looks fine waiting for the animation to kicks in.
+      strokeDasharray: '80px, 200px',
+      strokeDashoffset: '0px' // Add the unit to fix a Edge 16 and below bug.
+
+    },
+
+    /* Styles applied to the `circle` svg path if `variant="determinate"`. */
+    circleDeterminate: {
+      transition: theme.transitions.create('stroke-dashoffset')
+    },
+    '@keyframes circular-rotate': {
+      '0%': {
+        // Fix IE 11 wobbly
+        transformOrigin: '50% 50%'
+      },
+      '100%': {
+        transform: 'rotate(360deg)'
+      }
+    },
+    '@keyframes circular-dash': {
+      '0%': {
+        strokeDasharray: '1px, 200px',
+        strokeDashoffset: '0px'
+      },
+      '50%': {
+        strokeDasharray: '100px, 200px',
+        strokeDashoffset: '-15px'
+      },
+      '100%': {
+        strokeDasharray: '100px, 200px',
+        strokeDashoffset: '-125px'
+      }
+    },
+
+    /* Styles applied to the `circle` svg path if `disableShrink={true}`. */
+    circleDisableShrink: {
+      animation: 'none'
+    }
+  };
+};
+/**
+ * ## ARIA
+ *
+ * If the progress bar is describing the loading progress of a particular region of a page,
+ * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
+ * attribute to `true` on that region until it has finished loading.
+ */
+
+var CircularProgress = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function CircularProgress(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'primary' : _props$color,
+      _props$disableShrink = props.disableShrink,
+      disableShrink = _props$disableShrink === void 0 ? false : _props$disableShrink,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 40 : _props$size,
+      style = props.style,
+      _props$thickness = props.thickness,
+      thickness = _props$thickness === void 0 ? 3.6 : _props$thickness,
+      _props$value = props.value,
+      value = _props$value === void 0 ? 0 : _props$value,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'indeterminate' : _props$variant,
+      other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__.default)(props, ["classes", "className", "color", "disableShrink", "size", "style", "thickness", "value", "variant"]);
+
+  var circleStyle = {};
+  var rootStyle = {};
+  var rootProps = {};
+
+  if (variant === 'determinate' || variant === 'static') {
+    var circumference = 2 * Math.PI * ((SIZE - thickness) / 2);
+    circleStyle.strokeDasharray = circumference.toFixed(3);
+    rootProps['aria-valuenow'] = Math.round(value);
+    circleStyle.strokeDashoffset = "".concat(((100 - value) / 100 * circumference).toFixed(3), "px");
+    rootStyle.transform = 'rotate(-90deg)';
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.root, className, color !== 'inherit' && classes["color".concat((0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__.default)(color))], {
+      'determinate': classes.determinate,
+      'indeterminate': classes.indeterminate,
+      'static': classes.static
+    }[variant]),
+    style: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
+      width: size,
+      height: size
+    }, rootStyle, style),
+    ref: ref,
+    role: "progressbar"
+  }, rootProps, other), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("svg", {
+    className: classes.svg,
+    viewBox: "".concat(SIZE / 2, " ").concat(SIZE / 2, " ").concat(SIZE, " ").concat(SIZE)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("circle", {
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_4__.default)(classes.circle, disableShrink && classes.circleDisableShrink, {
+      'determinate': classes.circleDeterminate,
+      'indeterminate': classes.circleIndeterminate,
+      'static': classes.circleStatic
+    }[variant]),
+    style: circleStyle,
+    cx: SIZE,
+    cy: SIZE,
+    r: (SIZE - thickness) / 2,
+    fill: "none",
+    strokeWidth: thickness
+  })));
+});
+ true ? CircularProgress.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['inherit', 'primary', 'secondary']),
+
+  /**
+   * If `true`, the shrink animation is disabled.
+   * This only works if variant is `indeterminate`.
+   */
+  disableShrink: (0,_material_ui_utils__WEBPACK_IMPORTED_MODULE_6__.default)((prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool), function (props) {
+    if (props.disableShrink && props.variant && props.variant !== 'indeterminate') {
+      return new Error('Material-UI: You have provided the `disableShrink` prop ' + 'with a variant other than `indeterminate`. This will have no effect.');
+    }
+
+    return null;
+  }),
+
+  /**
+   * The size of the circle.
+   * If using a number, the pixel unit is assumed.
+   * If using a string, you need to provide the CSS unit, e.g '3rem'.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_3___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string)]),
+
+  /**
+   * @ignore
+   */
+  style: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().object),
+
+  /**
+   * The thickness of the circle.
+   */
+  thickness: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+
+  /**
+   * The value of the progress indicator for the determinate variant.
+   * Value between 0 and 100.
+   */
+  value: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+
+  /**
+   * The variant to use.
+   * Use indeterminate when there is no progress value.
+   */
+  variant: (0,_material_ui_utils__WEBPACK_IMPORTED_MODULE_6__.default)(prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['determinate', 'indeterminate', 'static']), function (props) {
+    var variant = props.variant;
+
+    if (variant === 'static') {
+      throw new Error('Material-UI: `variant="static"` was deprecated. Use `variant="determinate"` instead.');
+    }
+
+    return null;
+  })
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_styles_withStyles__WEBPACK_IMPORTED_MODULE_7__.default)(styles, {
+  name: 'MuiCircularProgress',
+  flip: false
+})(CircularProgress));
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/Container/Container.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Container/Container.js ***!
@@ -30765,18 +31033,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var history__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! history */ "./node_modules/history/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/core/index.js");
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
-/* harmony import */ var _pages_Article__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Article */ "./resources/js/pages/Article.js");
-/* harmony import */ var _pages_Signin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Signin */ "./resources/js/pages/Signin.js");
-/* harmony import */ var _pages_Signup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Signup */ "./resources/js/pages/Signup.js");
-/* harmony import */ var _pages_Boards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Boards */ "./resources/js/pages/Boards.js");
-/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/pages/Home.js");
+/* harmony import */ var _pages_ArticlePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/ArticlePage */ "./resources/js/pages/ArticlePage.js");
+/* harmony import */ var _pages_SigninPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/SigninPage */ "./resources/js/pages/SigninPage.js");
+/* harmony import */ var _pages_SignupPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/SignupPage */ "./resources/js/pages/SignupPage.js");
+/* harmony import */ var _pages_BoardsPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/BoardsPage */ "./resources/js/pages/BoardsPage.js");
+/* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/HomePage */ "./resources/js/pages/HomePage.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
 
 
 
@@ -30805,19 +31072,19 @@ function Main() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           exact: true,
           path: "/",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_6__.Home, {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_6__.HomePage, {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-          path: "signin",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Signin__WEBPACK_IMPORTED_MODULE_3__.Signin, {})
+          path: "/signin",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_SigninPage__WEBPACK_IMPORTED_MODULE_3__.SigninPage, {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-          path: "signup",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Signup__WEBPACK_IMPORTED_MODULE_4__.Signup, {})
+          path: "/signup",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_SignupPage__WEBPACK_IMPORTED_MODULE_4__.SignupPage, {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-          path: "boards",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Boards__WEBPACK_IMPORTED_MODULE_5__.Boards, {})
+          path: "/boards",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_BoardsPage__WEBPACK_IMPORTED_MODULE_5__.BoardsPage, {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-          path: "article/:slug",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Article__WEBPACK_IMPORTED_MODULE_2__.Article, {})
+          path: "/article/:id",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_ArticlePage__WEBPACK_IMPORTED_MODULE_2__.ArticlePage, {})
         })]
       })
     })
@@ -30943,6 +31210,81 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/Article.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/Article.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Article": () => (/* binding */ Article)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Article(_ref) {
+  var article = _ref.article;
+  console.log(article, 'mfka');
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: article.content
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/ArticlesList.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/ArticlesList.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ArticlesList": () => (/* binding */ ArticlesList)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Card */ "./resources/js/components/Card.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/core/index.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _components_Spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Spinner */ "./resources/js/components/Spinner.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+var GEAT_ARTICLES = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_4__.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    query GetArticles {\n        articles {\n            id,\n            title,\n            author {\n                name\n            }\n        }\n    }\n"])));
+function ArticlesList() {
+  var _useQuery = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_5__.useQuery)(GEAT_ARTICLES),
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      data = _useQuery.data;
+
+  if (loading) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Spinner__WEBPACK_IMPORTED_MODULE_2__.default, {});
+  if (error) return "Error! ".concat(error.message);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: data.articles.map(function (article) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_1__.default, {
+        article: article
+      }, article.id);
+    })
+  });
+}
 
 /***/ }),
 
@@ -31324,99 +31666,65 @@ function PersistentDrawerLeft(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/pages/Article.js":
-/*!***************************************!*\
-  !*** ./resources/js/pages/Article.js ***!
-  \***************************************/
+/***/ "./resources/js/components/Spinner.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/Spinner.js ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Article": () => (/* binding */ Article)
+/* harmony export */   "default": () => (/* binding */ CircularIndeterminate)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Drawer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Drawer */ "./resources/js/components/Drawer.js");
-/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Card */ "./resources/js/components/Card.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/esm/CircularProgress/CircularProgress.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
- // const GEAT_ARTICLES = gql`
-//     query GetArticles {
-//         article(id) {
-//             id,
-//             title,
-//             author {
-//                 name
-//             }
-//         }
-//     }
-// `;
-
-
-
-function Article() {
-  var _useQuery = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_4__.useQuery)(GEAT_ARTICLES),
-      loading = _useQuery.loading,
-      error = _useQuery.error,
-      data = _useQuery.data;
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-      children: "article"
-    })
+var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__.default)(function (theme) {
+  return {
+    root: {
+      display: 'flex',
+      justifyContent: 'center',
+      '& > * + *': {
+        marginLeft: theme.spacing(2)
+      }
+    }
+  };
+});
+function CircularIndeterminate() {
+  var classes = useStyles();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: classes.root,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_3__.default, {})
   });
 }
 
 /***/ }),
 
-/***/ "./resources/js/pages/Boards.js":
-/*!**************************************!*\
-  !*** ./resources/js/pages/Boards.js ***!
-  \**************************************/
+/***/ "./resources/js/pages/ArticlePage.js":
+/*!*******************************************!*\
+  !*** ./resources/js/pages/ArticlePage.js ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Boards": () => (/* binding */ Boards)
+/* harmony export */   "ArticlePage": () => (/* binding */ ArticlePage)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Drawer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Drawer */ "./resources/js/components/Drawer.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-function Boards() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Drawer__WEBPACK_IMPORTED_MODULE_1__.default, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-      children: "Yo"
-    })
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/pages/Home.js":
-/*!************************************!*\
-  !*** ./resources/js/pages/Home.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Home": () => (/* binding */ Home)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Drawer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Drawer */ "./resources/js/components/Drawer.js");
-/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Card */ "./resources/js/components/Card.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/core/index.js");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/core/index.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _components_Spinner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Spinner */ "./resources/js/components/Spinner.js");
+/* harmony import */ var _components_Drawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Drawer */ "./resources/js/components/Drawer.js");
+/* harmony import */ var _components_Article__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Article */ "./resources/js/components/Article.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var _templateObject;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -31427,38 +31735,94 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var GEAT_ARTICLES = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_4__.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    query GetArticles {\n        articles {\n            id,\n            title,\n            author {\n                name\n            }\n        }\n    }\n"])));
-function Home() {
-  var _useQuery = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_5__.useQuery)(GEAT_ARTICLES),
+
+function ArticlePage() {
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
+      id = _useParams.id;
+
+  var GEAT_ARTICLE = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_6__.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        query GetArticles {\n            article(id: ", ") {\n                id,\n                title,\n                content,\n                author {\n                    name\n                }\n            }\n        }\n    "])), id);
+
+  var _useQuery = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_7__.useQuery)(GEAT_ARTICLE),
       loading = _useQuery.loading,
       error = _useQuery.error,
       data = _useQuery.data;
 
-  if (loading) return 'Loading...';
+  if (loading) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Spinner__WEBPACK_IMPORTED_MODULE_1__.default, {});
   if (error) return "Error! ".concat(error.message);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Drawer__WEBPACK_IMPORTED_MODULE_1__.default, {
-      children: data.articles.map(function (article) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_2__.default, {
-          article: article
-        }, article.id);
-      })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Drawer__WEBPACK_IMPORTED_MODULE_2__.default, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Article__WEBPACK_IMPORTED_MODULE_3__.Article, {
+      article: data.article
     })
   });
 }
 
 /***/ }),
 
-/***/ "./resources/js/pages/Signin.js":
-/*!**************************************!*\
-  !*** ./resources/js/pages/Signin.js ***!
-  \**************************************/
+/***/ "./resources/js/pages/BoardsPage.js":
+/*!******************************************!*\
+  !*** ./resources/js/pages/BoardsPage.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Signin": () => (/* binding */ Signin)
+/* harmony export */   "BoardsPage": () => (/* binding */ BoardsPage)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _components_Drawer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Drawer */ "./resources/js/components/Drawer.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function BoardsPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Drawer__WEBPACK_IMPORTED_MODULE_1__.default, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      children: "Yo"
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/HomePage.js":
+/*!****************************************!*\
+  !*** ./resources/js/pages/HomePage.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "HomePage": () => (/* binding */ HomePage)
+/* harmony export */ });
+/* harmony import */ var _components_Drawer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Drawer */ "./resources/js/components/Drawer.js");
+/* harmony import */ var _components_ArticlesList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ArticlesList */ "./resources/js/components/ArticlesList.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function HomePage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Drawer__WEBPACK_IMPORTED_MODULE_0__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_ArticlesList__WEBPACK_IMPORTED_MODULE_1__.ArticlesList, {})
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/pages/SigninPage.js":
+/*!******************************************!*\
+  !*** ./resources/js/pages/SigninPage.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SigninPage": () => (/* binding */ SigninPage)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Avatar */ "./node_modules/@material-ui/core/esm/Avatar/Avatar.js");
@@ -31547,7 +31911,7 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__.default
   };
 });
 var SIGN_IN = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_5__.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    mutation Login($email: String!, $password: String!) {\n        login(email: $email, password: $password) {\n            name\n            email\n        }\n    }\n"])));
-function Signin() {
+function SigninPage() {
   var classes = useStyles();
 
   var _useMutation = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_6__.useMutation)(SIGN_IN),
@@ -31666,16 +32030,16 @@ function Signin() {
 
 /***/ }),
 
-/***/ "./resources/js/pages/Signup.js":
-/*!**************************************!*\
-  !*** ./resources/js/pages/Signup.js ***!
-  \**************************************/
+/***/ "./resources/js/pages/SignupPage.js":
+/*!******************************************!*\
+  !*** ./resources/js/pages/SignupPage.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Signup": () => (/* binding */ Signup)
+/* harmony export */   "SignupPage": () => (/* binding */ SignupPage)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Avatar */ "./node_modules/@material-ui/core/esm/Avatar/Avatar.js");
@@ -31764,7 +32128,7 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__.default
   };
 });
 var SIGN_UP = (0,_apollo_client__WEBPACK_IMPORTED_MODULE_5__.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    mutation Register($email: String!, $password: String!, $name: String!) {\n        register(email: $email, password: $password, name: $name) {\n            id\n            name\n            email\n        }\n    }\n"])));
-function Signup() {
+function SignupPage() {
   var _jsx2;
 
   var classes = useStyles();

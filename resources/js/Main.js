@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route, Switch} from "react-router-dom";
 import {createBrowserHistory} from "history";
-import {BrowserRouter as Router} from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+} from 'react-router-dom';
+
 import {ApolloClient, InMemoryCache} from '@apollo/client';
 import {ApolloProvider} from '@apollo/client';
 
-import {Article} from './pages/Article';
-import {Signin} from './pages/Signin'
-import {Signup} from './pages/Signup'
-import {Boards} from './pages/Boards';
-import {Home} from './pages/Home';
+import {ArticlePage} from './pages/ArticlePage';
+import {SigninPage} from './pages/SigninPage';
+import {SignupPage} from './pages/SignupPage';
+import {BoardsPage} from './pages/BoardsPage';
+import {HomePage} from './pages/HomePage';
 
 const history = createBrowserHistory();
 
@@ -25,19 +29,19 @@ function Main() {
             <Router history={history}>
                 <Switch>
                     <Route exact path="/">
-                        <Home/>
+                        <HomePage />
                     </Route>
-                    <Route path="signin">
-                        <Signin/>
+                    <Route path="/signin">
+                        <SigninPage />
                     </Route>
-                    <Route path="signup">
-                        <Signup/>
+                    <Route path="/signup">
+                        <SignupPage />
                     </Route>
-                    <Route path="boards">
-                        <Boards/>
+                    <Route path="/boards">
+                        <BoardsPage />
                     </Route>
-                    <Route path="article/:slug">
-                        <Article />
+                    <Route path="/article/:id">
+                        <ArticlePage />
                     </Route>
                 </Switch>
             </Router>

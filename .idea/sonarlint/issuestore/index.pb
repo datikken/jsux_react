@@ -15,8 +15,6 @@ C
 resources/js/app.js,8/5/857628e89e6d3e0f341720284d70b5f44c757924
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
-N
-resources/js/components/App.js,6/9/69b654fec184d08b544db63db3d7821fe1ae4ab2
 L
 resources/js/pages/Signup.js,7/1/712b66c6c23c4fe4fe1cae321e8a620fec48b1de
 L
@@ -51,3 +49,77 @@ F
 app/Models/Article.php,e/a/ea9ad23666fdd6d73f306513ece72fd49d3283c6
 F
 graphql/schema.graphql,5/b/5b71ac376d4142b5fc03e9de411546653bab5f3f
+O
+app/GraphQL/Mutations/Login.php,c/7/c79d84c0691f939d7cb493ff1c7c7caefe2168ec
+[
++app/Http/Controllers/CardListController.php,1/f/1fa4b30432349b8cae978c1a2ecf8bba25f85497
+q
+Adatabase/migrations/2021_03_14_212759_create_card_lists_table.php,f/d/fde5926a28fde327e9f9f3faec9924ece0997d0d
+X
+(app/Http/Controllers/BoardController.php,d/0/d03d835ff1ac2279beccbdd600a3228a059c17c4
+C
+app/Models/Card.php,c/0/c08065036a917aab8cd6d9b3bb5c6d73962b1971
+G
+app/Models/CardList.php,4/8/48c36c93ba4f89db82356c8f4503a01bd3fee9d2
+m
+=database/migrations/2021_03_14_212737_create_boards_table.php,0/1/012a59500b8069bd283fcac65d19fe3320728af6
+P
+ database/seeders/BoardSeeder.php,5/f/5f7d837def3e61589fa33bc96a597cab33ff11ef
+S
+#database/seeders/CardListSeeder.php,9/0/90670908545e7b8eb2aeb695cce07ffa498c4f29
+O
+database/seeders/CardSeeder.php,c/4/c4ec973d191db24b78fe82f38c0fc4066648dc0c
+K
+resources/js/graphql/Me.gql,4/f/4f045dca63e1a8e4c5576aafb79d2378648aef1f
+D
+app/Models/Board.php,1/2/1255bfa0114acf0f15c17bd93b737bae420965f2
+>
+config/app.php,7/3/734f7be25e8008acc7129e73cd116d5de913e6fd
+?
+config/auth.php,c/d/cddba0f39ef2cbe4d8189e8f5621a3bb533d6bc2
+G
+config/broadcasting.php,b/a/bac236f5cc1ad8412b3ade7938cd9a596cb29b3c
+?
+config/cors.php,f/7/f7891f754ebd7bd00ef08ff31f4b6297132c3fc3
+C
+config/services.php,6/7/67cde7ebf0c82e44eedc43a9b83d4fa13c684078
+8
+.babelrc,b/c/bcac7464521b8c19a2372c739f6dc9e9ab7dfc80
+Q
+!resources/js/stores/root.store.js,a/c/acb2d79023ae7055682d60395b8e3da67ba0eb07
+V
+&nova/src/Http/Requests/CardRequest.php,4/c/4cfaddb91a6febb74362935e40173e27a204b340
+7
+artisan,7/b/7b71702630186bd4af512196be21d5bd978c3333
+=
+.editorconfig,6/2/626a747c8694eaae66f2afb3d1a745b045782c70
+Q
+!resources/js/stores/auth.store.js,3/b/3bc06c371bccf375d0dd1b79d4fb64252f571413
+C
+shell/post_merge.sh,8/3/838b892cba04f405749d668df63b0ffd90b97b6d
+C
+shell/post_clone.sh,0/7/07b9107545c024e6920a00783f815956455fc2e7
+N
+resources/views/test.blade.php,a/f/af2dcfeaf1fc08ae5822c366f9fb813b2e090cdf
+=
+composer.json,3/9/3957b91a0d8450cea0115cfd5af69eac90d75897
+l
+<database/migrations/2021_03_14_213454_create_cards_table.php,7/f/7f78851c44a3a4b019e745b14637bd4844aacc95
+<
+.env.example,d/4/d4dae00d11854b35292c2b8a30515a9a0aa2d871
+L
+.github/workflows/deploy.yml,f/1/f130ad0d1d16d0d70ec30d355f736ae3784b05cf
+D
+app/Nova/Article.php,e/3/e34036db311e6390e532393b7ae62b71e3966e4d
+Y
+)app/Http/Controllers/SpiderController.php,7/1/71adc1182c83215d71620166b32814b913758290
+L
+resources/js/pages/Boards.js,4/2/422a81137e81c9ea46f6e9fd72223213411a62b1
+O
+resources/js/truncate_string.js,b/8/b8316cdb87e722050a6a8e82972af4f25ad49abf
+O
+resources/js/components/Card.js,7/c/7c4aef95d07b5f3c58975799224f32e395a5c16d
+D
+resources/js/Main.js,1/6/1654408ce6d94922022171a42880bae5283343b1
+M
+resources/js/pages/Article.js,0/9/0954bb5d61beae76dbcc420e7b04a15ee326cfba
