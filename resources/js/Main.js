@@ -6,6 +6,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import {ApolloClient, InMemoryCache} from '@apollo/client';
 import {ApolloProvider} from '@apollo/client';
 
+import {Article} from './pages/Article';
 import {Signin} from './pages/Signin'
 import {Signup} from './pages/Signup'
 import {Boards} from './pages/Boards';
@@ -26,14 +27,17 @@ function Main() {
                     <Route exact path="/">
                         <Home/>
                     </Route>
-                    <Route path="/signin">
+                    <Route path="signin">
                         <Signin/>
                     </Route>
-                    <Route path="/signup">
+                    <Route path="signup">
                         <Signup/>
                     </Route>
-                    <Route path="/boards">
+                    <Route path="boards">
                         <Boards/>
+                    </Route>
+                    <Route path="article/:slug">
+                        <Article />
                     </Route>
                 </Switch>
             </Router>

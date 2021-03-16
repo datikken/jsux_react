@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 
 class Article extends Resource
 {
@@ -44,7 +45,7 @@ class Article extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('title'),
-
+            Trix::make('content')
         ];
     }
 
