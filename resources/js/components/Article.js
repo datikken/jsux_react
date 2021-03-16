@@ -2,8 +2,19 @@ import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import {gql, useQuery} from "@apollo/client";
 import Spinner from "./Spinner";
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from "@material-ui/core/styles";
 
-export function Article({ id }) {
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        flexDirection: 'column'
+    },
+}));
+
+export function Article({id}) {
+    const classes = useStyles();
+
     const GEAT_ARTICLE = gql`
         query GetArticles {
             article(id: ${id}) {
@@ -23,8 +34,8 @@ export function Article({ id }) {
     if (error) return `Error! ${error.message}`;
 
     return (
-        <>
-            { ReactHtmlParser (data.article.content) }
-        </>
+        <div className={classes.root}>
+            {ReactHtmlParser(data.article.content)}
+        </div>
     );
 }
