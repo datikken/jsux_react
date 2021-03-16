@@ -42,6 +42,7 @@ jobs:
           mysql --version
           sudo apt-get install -y mysql-client
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -e "SHOW DATABASES"
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -e "CREATE DATABASE ${{ secrets.DATABASE }}"
       - name: Checkout code
         uses: actions/checkout@v1
 
@@ -66,6 +67,7 @@ jobs:
           cp .env.example .env
           php artisan key:generate
           php artisan --version
+
       - name: Run migration and schema dump
         run: |
           php artisan migrate
