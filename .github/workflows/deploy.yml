@@ -42,7 +42,7 @@ jobs:
           mysql --version
           sudo apt-get install -y mysql-client
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -e "SHOW DATABASES"
-          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -e "CREATE DATABASE ${{ secrets.DATABASE }}"
+
       - name: Checkout code
         uses: actions/checkout@v1
 
@@ -74,6 +74,7 @@ jobs:
         env:
           DB_HOST: 127.0.0.1
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_NAME: ${{ secrets.DATABASE }}
 
       - name: Install NPM dependencies
         run: npm install
