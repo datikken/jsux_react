@@ -14,12 +14,14 @@
         "google/cloud-text-to-speech": "^1.2",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
+        "laravel/nova": "*",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "mll-lab/laravel-graphql-playground": "^2.5",
         "nuwave/lighthouse": "^5.3",
-        "symfony/dom-crawler": "^5.2",
-        "laravel/nova": "*"
+        "spatie/laravel-tags": "^3.1",
+        "spatie/nova-tags-field": "^3.1",
+        "symfony/dom-crawler": "^5.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
