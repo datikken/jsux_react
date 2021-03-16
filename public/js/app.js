@@ -30848,6 +30848,55 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./Main */ "./resources/js/Main.js");
 
+var shaverma = {
+  meat: {
+    weight: 250,
+    price: 300
+  },
+  potatoes: {
+    weight: 100,
+    price: 100
+  },
+  tomatoes: {
+    weight: 50,
+    price: 100
+  },
+  pickles: {
+    weight: 50,
+    price: 200
+  },
+  onions: {
+    weight: 10,
+    price: 40
+  },
+  cream: {
+    weight: 50,
+    price: 300
+  },
+  peper: {
+    weight: 20,
+    price: 600
+  }
+};
+
+function figure_out_daily_ration(obj, reps) {
+  obj.total = 0;
+
+  for (var key in obj) {
+    if (typeof obj[key] != 'number') {
+      var price = obj[key].weight * (obj[key].price / 1000) * reps;
+      obj.total = obj.total + price;
+      obj[key].price = "".concat(price, "p");
+    }
+  }
+
+  obj.reps = reps;
+  return obj;
+} // let daily = figure_out_daily_ration(shaverma, 90)
+
+
+console.log(daily);
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
