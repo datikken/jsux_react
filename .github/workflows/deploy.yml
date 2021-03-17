@@ -111,12 +111,12 @@ jobs:
         run: vendor/bin/phpunit --testdox
 
       - name: execute ssh
-        uses: garygrossgarten/github-action-scp@release
+        uses: tarunjangra/ssh-remote-cmd@v1
         with:
           command:
             cd jsux.fun;
             git pull;
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          user: ${{ secrets.USERNAME }}
+          pass: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
