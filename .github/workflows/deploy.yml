@@ -111,12 +111,12 @@ jobs:
         run: vendor/bin/phpunit --testdox
 
       - name: Deploy to server
-        uses: appleboy/ssh-action@master
+        uses: garygrossgarten/github-action-ssh@release
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
+          passphrase: ${{ secrets.PASSWORD }}
+          privateKey: ${{ secrets.PRIVATE_KEY }}
           script: |
             pwd;
             cd jsux.fun;
