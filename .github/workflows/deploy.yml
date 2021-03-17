@@ -111,13 +111,12 @@ jobs:
         run: vendor/bin/phpunit --testdox
 
       - name: execute ssh
-        uses: matheusvanzan/sshpass-action@v2
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
-          user: ${{ secrets.USERNAME }}
-          pass: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          run:
-            pwd;
+          run: |
             cd jsux.fun;
             git pull;
