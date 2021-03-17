@@ -117,7 +117,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           passphrase: ${{ secrets.PASSWORD }}
           privateKey: ${{ secrets.PRIVATE_KEY }}
-          script: |
+          run:
             pwd;
             cd jsux.fun;
             git pull;
