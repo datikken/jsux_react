@@ -111,7 +111,7 @@ jobs:
         run: vendor/bin/phpunit --testdox
 
       - name: execute ssh
-        uses: garygrossgarten/github-action-ssh@release
+        uses: garygrossgarten/github-action-scp@release
         with:
           command:
             cd jsux.fun;
