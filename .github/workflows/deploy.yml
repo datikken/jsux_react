@@ -68,9 +68,6 @@ jobs:
           php artisan --version
 
       - name: Run migration and schema dump
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
-
         run: |
           php artisan migrate
 
