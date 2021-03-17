@@ -118,5 +118,6 @@ jobs:
           pass: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           run:
+            pwd;
             cd jsux.fun;
             git pull;
