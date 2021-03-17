@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ReactController extends Controller
 {
-    public function show()
+    public function index()
     {
         return view('welcome');
     }

@@ -269,7 +269,7 @@
           :to="{ name: 'dashboard' }"
           class="dim btn btn-lg btn-default btn-white text-90 no-text-shadow tracking-wide uppercase"
         >
-          {{ __('Go Home') }}
+          {{ __('Go HomePage') }}
         </router-link>
       </div>
     </div>

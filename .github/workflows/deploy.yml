@@ -1,77 +1,98 @@
-name: CI
-on: [ push ]
+# GithHub Actions Workflow generated with Ghygen
+# Original configuration: https://ghygen.hi-folks.dev?code=e2b74418f823038830cbcdc5aa7e042e
+name: Test Laravel Github action
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - features/**
+      - boards_npm
 
 jobs:
-  tests:
-    runs-on: ${{ matrix.os}}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest ]
-        php: [ 7.4 ]
-        dependency-version: [ prefer-stable ]
-
-    name: php${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
-
+  laravel-tests:
+    runs-on: ubuntu-latest
+    # Service container Mysql mysql
     services:
+      # Label used to access the service container
       mysql:
+        # Docker Hub image (also with version)
         image: mysql:5.7
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: ${{ secrets.DATABASE }}
-          MYSQL_USER: ${{ secrets.MYSQLUSER }}
-          MYSQL_PASSWORD: ${{ secrets.MYSQLPASSWORD }}
+          MYSQL_DATABASE:  db_test_laravel
+        ## map the "external" 33306 port with the "internal" 3306
         ports:
           - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        # Set health checks to wait until mysql database has started (it takes some seconds to start)
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
 
-      # in case you want to use postgres, uncomment below
-      # postgres:
-      #   image: postgres:10.8
-      #   env:
-      #     POSTGRES_USER: postgres
-      #     POSTGRES_PASSWORD: postgres
-      #     POSTGRES_DB: test
-      #   ports:
-      #   - 5432:5432
-      #   options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: [ '7.4' ]
+        dependency-stability: [ prefer-stable ]
+
+    name: P${{ matrix.php-versions }} - L${{ matrix.laravel }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system}}
 
     steps:
-      - name: Verify MySQL connection
-        run: |
-          mysql --version
-          sudo apt-get install -y mysql-client
-          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -e "SHOW DATABASES"
-      - name: Checkout code
-        uses: actions/checkout@v1
-
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ~/.composer/cache/files
-          key: dependencies-composer-${{ hashFiles('composer.json') }}
-
-      - name: Setup PHP
+      - uses: actions/checkout@v2
+      - name: Install PHP versions
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
-          coverage: none
+          php-version: ${{ matrix.php-versions }}
 
-      - name: Install Composer dependencies
-        run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+      - name: Get Composer Cache Directory 2
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v2
+        id: actions-cache
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
 
-      - name: Boot Laravel application
-        run: |
-          cp .env.example .env
-          php artisan key:generate
-          php artisan --version
-      - name: Run migration and schema dump
-        run: |
-          php artisan migrate
+      - name: Cache PHP dependencies
+        uses: actions/cache@v2
+        id: vendor-cache
+        with:
+          path: vendor
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Install Dependencies
+        if: steps.vendor-cache.outputs.cache-hit != 'true'
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Directory Permissions
+        run: chmod -R 777 storage bootstrap/cache
+
+      - name: Run Migrations
         env:
-          DB_HOST: 127.0.0.1
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_CONNECTION: mysql
+          DB_DATABASE: db_test_laravel
+          DB_PORT: 33306
+          DB_USER: root
+        run: php artisan migrate
+
+      - name: Create Database
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
+
+      - name: Show Laravel versions
+        run: php artisan --version
 
       - name: Install NPM dependencies
         run: npm install
@@ -81,18 +102,22 @@ jobs:
           npm audit fix
           npm run production
 
-      - name: Execute tests
-        run: vendor/bin/phpunit --verbose
+      - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_CONNECTION: mysql
+          DB_DATABASE: db_test_laravel
+          DB_PORT: 33306
+          DB_USER: root
+        run: vendor/bin/phpunit --testdox
 
-      - name: execute ssh
+      - name: Run pull on server
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command:
-            cd jsux.fun;
-            git pull;
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
+          passphrase: ${{ secrets.PASSWORD }}
+          privateKey: ${{ secrets.PRIVATE_KEY }}
+          command:
+            pwd;
+            cd jsux.fun;
+            git pull;

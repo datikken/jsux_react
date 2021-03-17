@@ -36,7 +36,7 @@ class SpiderController extends Controller
         foreach($allBlocks as $block) {
             if(!is_null($block)) {
                 Article::create([
-                    'author_id' => 14,
+                    'author_id' => 1,
                     'title' => '',
                     'content' => $block[0]
                 ]);
