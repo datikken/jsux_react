@@ -18,9 +18,9 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: ${{ secrets.DATABASE }}
-          MYSQL_USER: ${{ secrets.MYSQLUSER }}
-          MYSQL_PASSWORD: ${{ secrets.MYSQLPASSWORD }}
+          MYSQL_DATABASE: jsux_react
+          MYSQL_USER: root
+#          MYSQL_PASSWORD: ${{ secrets.MYSQLPASSWORD }}
         ports:
           - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
