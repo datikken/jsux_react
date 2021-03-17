@@ -110,7 +110,7 @@ jobs:
           DB_USER: root
         run: vendor/bin/phpunit --testdox
 
-      - name: execute ssh
+      - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -118,5 +118,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
+            pwd;
             cd jsux.fun;
             git pull;
