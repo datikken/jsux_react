@@ -110,14 +110,14 @@ jobs:
           DB_USER: root
         run: vendor/bin/phpunit --testdox
 
-      - name: Deploy to server
+      - name: Run pull on server
         uses: garygrossgarten/github-action-ssh@release
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           passphrase: ${{ secrets.PASSWORD }}
           privateKey: ${{ secrets.PRIVATE_KEY }}
-          run:
+          command:
             pwd;
             cd jsux.fun;
             git pull;
