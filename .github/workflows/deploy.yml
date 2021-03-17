@@ -111,12 +111,12 @@ jobs:
         run: vendor/bin/phpunit --testdox
 
       - name: execute ssh
-        uses: tarunjangra/ssh-remote-cmd@v1
+        uses: matheusvanzan/sshpass-action@v2
         with:
-          command:
-            cd jsux.fun;
-            git pull;
           host: ${{ secrets.HOST }}
           user: ${{ secrets.USERNAME }}
           pass: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
+          run:
+            cd jsux.fun;
+            git pull;
