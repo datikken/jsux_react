@@ -98,3 +98,14 @@ jobs:
           DB_USER: root
 
         run: vendor/bin/phpunit --testdox
+
+      - name: execute ssh
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command:
+            cd jsux.fun;
+            git pull;
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
