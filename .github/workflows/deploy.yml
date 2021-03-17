@@ -111,12 +111,12 @@ jobs:
         run: vendor/bin/phpunit --testdox
 
       - name: execute ssh
-        uses: garygrossgarten/github-action-ssh@release
+        uses: appleboy/scp-action@master
         with:
-          command:
-            cd jsux.fun;
-            git pull;
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
+          run: |
+            cd jsux.fun;
+            git pull;
