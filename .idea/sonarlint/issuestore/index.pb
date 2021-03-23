@@ -15,14 +15,8 @@ C
 resources/js/app.js,8/5/857628e89e6d3e0f341720284d70b5f44c757924
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
-L
-resources/js/pages/Signup.js,7/1/712b66c6c23c4fe4fe1cae321e8a620fec48b1de
-L
-resources/js/pages/Signin.js,6/c/6c7885d56d4033ab5ada2df9898d64041df7d691
 T
 $resources/js/components/Copyright.js,0/d/0d1d7abe33708fcd76ffc2466f8617d592cf616a
-J
-resources/js/pages/Home.js,6/8/686648ee5c2221c6e710f63e98fdc05e2edfc04b
 Q
 !resources/js/components/Drawer.js,a/9/a97c8ab3ce9e5e28242092e5a418ea3aefe528f0
 W
@@ -97,8 +91,6 @@ Q
 !resources/js/stores/auth.store.js,3/b/3bc06c371bccf375d0dd1b79d4fb64252f571413
 C
 shell/post_merge.sh,8/3/838b892cba04f405749d668df63b0ffd90b97b6d
-C
-shell/post_clone.sh,0/7/07b9107545c024e6920a00783f815956455fc2e7
 N
 resources/views/test.blade.php,a/f/af2dcfeaf1fc08ae5822c366f9fb813b2e090cdf
 =
@@ -113,13 +105,22 @@ D
 app/Nova/Article.php,e/3/e34036db311e6390e532393b7ae62b71e3966e4d
 Y
 )app/Http/Controllers/SpiderController.php,7/1/71adc1182c83215d71620166b32814b913758290
-L
-resources/js/pages/Boards.js,4/2/422a81137e81c9ea46f6e9fd72223213411a62b1
-O
-resources/js/truncate_string.js,b/8/b8316cdb87e722050a6a8e82972af4f25ad49abf
 O
 resources/js/components/Card.js,7/c/7c4aef95d07b5f3c58975799224f32e395a5c16d
 D
 resources/js/Main.js,1/6/1654408ce6d94922022171a42880bae5283343b1
-M
-resources/js/pages/Article.js,0/9/0954bb5d61beae76dbcc420e7b04a15ee326cfba
+P
+ resources/js/pages/BoardsPage.js,6/c/6c9a35bee178fe5c50d3fe15d7f64e1425bd7ad4
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+R
+"resources/js/components/Spinner.js,a/0/a0051dee95169ea9d0a78cc19e3e301931589215
+R
+"resources/js/components/Article.js,b/9/b9a7557456c6927f938005082f53806fa4a91e10
+Q
+!resources/js/pages/ArticlePage.js,8/4/844f6423513227acd086e324c1bc1059e778004e
+O
+public/favicon/site.webmanifest,1/f/1f42ae752ea40c8ce1a03df2e5802fbcb58f4d42
+N
+resources/js/pages/HomePage.js,6/d/6db84558f616a5e744f4f68d63a3b05945eed1c1

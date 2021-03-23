@@ -1,5 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\SpiderController;
 
-Route::view('/{any}', 'welcome')->where('any', '.*');
+Route::get('/', function(Request $request) {
+    if($request->path() != 'nova') {
+        return view('welcome');
+    }
+});
+
+Route::get('/test', [SpiderController::class, 'test'])->name('test');
