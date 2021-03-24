@@ -36,8 +36,8 @@ class SpiderController extends Controller
 
                 Article::create([
                     'title'=> $article['title'],
-                    'content'=>$article_content[0],
-                    'tags' => $article['tags'],
+                    'description'=> $article['descr'],
+                    'content'=> $article_content[0],
                     'author_id' => 1
                 ]);
             }

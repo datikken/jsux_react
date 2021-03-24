@@ -91,8 +91,6 @@ Q
 !resources/js/stores/auth.store.js,3/b/3bc06c371bccf375d0dd1b79d4fb64252f571413
 C
 shell/post_merge.sh,8/3/838b892cba04f405749d668df63b0ffd90b97b6d
-N
-resources/views/test.blade.php,a/f/af2dcfeaf1fc08ae5822c366f9fb813b2e090cdf
 =
 composer.json,3/9/3957b91a0d8450cea0115cfd5af69eac90d75897
 l
@@ -124,3 +122,15 @@ O
 public/favicon/site.webmanifest,1/f/1f42ae752ea40c8ce1a03df2e5802fbcb58f4d42
 N
 resources/js/pages/HomePage.js,6/d/6db84558f616a5e744f4f68d63a3b05945eed1c1
+U
+%database/factories/ArticleFactory.php,3/6/363c6eb0c0bbe73425d6a394600be307c9d9fb84
+V
+&database/factories/CardListFactory.php,0/f/0fca4b1767b95ef7e2b659ab1c93d246f6a1de13
+R
+"database/factories/CardFactory.php,5/e/5e24c6f45e72f9f177c252af47f26cf28f9139b7
+W
+'resources/views/auth/register.blade.php,8/6/8600e63b1d771a3b86abef40d1ef23e1ffb21feb
+C
+app/Http/Kernel.php,4/0/405f423e61f666bcedb754ae8befdce9e746176e
+\
+,app/Http/Middleware/RedirectIfNotToAdmin.php,5/f/5fc8c3a49e3431a48c4e605062b4d43662fd0bf6

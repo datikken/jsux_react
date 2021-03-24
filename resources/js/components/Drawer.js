@@ -141,10 +141,10 @@ export default function PersistentDrawerLeft({ children }) {
                         <Link to="/" className={classes.mainLogo}></Link>
                     </div>
 
-                    <ul className={classes.navMenuUl}>
-                        <li className={classes.navMenuLi}><Link className={classes.navMenuLink} to="/signin">Signin</Link></li>
-                        <li className={classes.navMenuLi}><Link className={classes.navMenuLink} to="/signup">Signup</Link></li>
-                    </ul>
+                    {/*<ul className={classes.navMenuUl}>*/}
+                        {/*<li className={classes.navMenuLi}><Link className={classes.navMenuLink} to="/signin">Signin</Link></li>*/}
+                        {/*<li className={classes.navMenuLi}><Link className={classes.navMenuLink} to="/signup">Signup</Link></li>*/}
+                    {/*</ul>*/}
 
 
                 </Toolbar>

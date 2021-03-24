@@ -23,6 +23,9 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
+    prgf: {
+        margin: 0
+    }
 });
 
 export default function OutlinedCard({ article }) {
@@ -32,11 +35,14 @@ export default function OutlinedCard({ article }) {
         <Card className={classes.root} variant="outlined">
             <CardContent>
                 <Typography className={classes.pos} color="textSecondary">
-                    {article.author.name}
+                    {article.user.name}
                 </Typography>
                 <Typography className={classes.pos} variant="h5" component="h2">
                     {article.title}
                 </Typography>
+                <p className={classes.prgf}>
+                    {article.description}
+                </p>
             </CardContent>
             <CardActions>
                 <Link to={'/article/' + article.id}>

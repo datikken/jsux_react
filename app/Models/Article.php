@@ -6,20 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Spatie\Tags\HasTags;
+
 
 class Article extends Model
 {
     use HasFactory;
-    use HasTags;
 
     protected $fillable = [
         'author_id',
         'title',
+        'description',
+        'tags',
         'content',
     ];
 
-    public function author(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
     }

@@ -8,7 +8,8 @@ const GEAT_ARTICLES = gql`
         articles {
             id,
             title,
-            author {
+            description,
+            user {
                 name
             }
         }

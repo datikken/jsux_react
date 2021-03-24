@@ -1,13 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use App\Http\Controllers\SpiderController;
+use App\Http\Controllers\ReactController;
 
-Route::get('/', function(Request $request) {
-    if($request->path() != 'nova') {
-        return view('welcome');
-    }
-});
+Route::get('/', [ReactController::class, 'index']);
 
-Route::get('/test', [SpiderController::class, 'test'])->name('test');
+Route::get('/{any}', [ReactController::class, 'index'])
+    ->where('any', '(.*)')
+    ->middleware('not_admin');

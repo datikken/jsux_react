@@ -2,7 +2,6 @@ import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import {gql, useQuery} from "@apollo/client";
 import Spinner from "./Spinner";
-import Typography from '@material-ui/core/Typography';
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +20,7 @@ export function Article({id}) {
                 id,
                 title,
                 content,
-                author {
+                user {
                     name
                 }
             }
