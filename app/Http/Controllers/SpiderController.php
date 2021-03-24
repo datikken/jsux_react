@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Symfony\Component\DomCrawler\Crawler;
 use GuzzleHttp\Client;
 use App\Models\Article;
+use App\Models\Category;
 
 class SpiderController extends Controller
 {
     public function test()
     {
+        $category = Category::where(['name' => 'algorithms'])->get();
+
         $pagesCount = 3;
         $linkToPars = 'https://www.30secondsofcode.org/js/t/algorithm/p/';
         $baseUrl = 'https://www.30secondsofcode.org';
@@ -34,12 +37,14 @@ class SpiderController extends Controller
                 $crawler = $this->create_crawler($link);
                 $article_content = $this->parse_block($crawler, '.snippet-card');
 
-                Article::create([
+                $aticle = Article::create([
                     'title'=> $article['title'],
                     'description'=> $article['descr'],
                     'content'=> $article_content[0],
                     'author_id' => 1
                 ]);
+
+                $aticle->categories()->attach($category);
             }
         }
     }
