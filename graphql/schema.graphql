@@ -39,6 +39,14 @@ type Article {
     content: String!
     description: String!
     user: User! @belongsTo
+    category: [Category!]! @hasMany
+}
+
+type Category {
+    id: ID!
+    name: String!
+    description: String!
+    article: Article! @belongsTo
 }
 
 type Tag {
