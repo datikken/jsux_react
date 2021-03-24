@@ -16,8 +16,9 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('author_id');
-            $table->string('title');
-            $table->text('content');
+            $table->string('title')->nullable();
+            $table->text('content')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
 
             $table->foreign('author_id')->references('id')->on('users');

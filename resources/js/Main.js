@@ -21,7 +21,7 @@ const history = createBrowserHistory();
 const client = new ApolloClient({
     uri: '/graphql',
     cache: new InMemoryCache()
-})
+});
 
 function Main() {
     return (

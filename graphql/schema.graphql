@@ -12,26 +12,9 @@ type Query {
     user(id: ID @eq): User @find
     articles: [Article!]! @all
     article(id: Int! @eq): Article @find
-    userBoards(owner_id: ID! @where): [Board!]
-    @all
-    @can(ability: "viewOwnedBoards", find: "owner_id", model: "Main\\Models\\User")
-    board(id: ID! @eq): Board @find
-    me: User @auth
 }
 
 type Mutation {
-    cardAdd(input: CardAddInput @spread): Card!
-    @create
-    @can(ability: "createCard", model: "Main\\CardList", find: "list_id")
-    cardDelete(id: ID!): Card @delete @can(ability: "delete", find: "id")
-    cardUpdate(id: ID!, title: String): Card
-    @update
-    @can(ability: "update", find: "id")
-
-    boardAdd(title: String!, color: String!): Board! @create
-
-    listAdd(title: String!, board_id: ID!): CardList! @create
-
     login(email: String!, password: String!): User!
     logout: User @guard
     register(
@@ -48,50 +31,25 @@ type User {
     created_at: DateTime!
     updated_at: DateTime!
     articles: [Article!]! @hasMany
-    boards: [Board!]! @hasMany
-    cards: [Card!]! @hasMany
 }
 
 type Article {
     id: ID!
     title: String!
     content: String!
-    author: User! @belongsTo
+    description: String!
+    user: User! @belongsTo
+    category: [Category!]! @hasMany
 }
 
-type Board {
+type Category {
     id: ID!
-    created_at: DateTime!
-    updated_at: DateTime!
-    title: String!
-    color: String!
-    lists: [CardList!]! @hasMany
-    owner: User! @belongsTo
+    name: String!
+    description: String!
+    article: Article! @belongsTo
 }
 
-type CardList {
+type Tag {
     id: ID!
-    created_at: DateTime!
-    updated_at: DateTime!
-    title: String!
-    cards: [Card!]! @hasMany
-    board: Board! @belongsTo
-    board_id: ID!
-}
-
-type Card {
-    id: ID!
-    created_at: DateTime!
-    updated_at: DateTime!
-    title: String!
-    order: Int!
-    list: CardList! @belongsTo
-    owner: User! @belongsTo
-}
-
-input CardAddInput {
-    title: String!
-    order: Int!
-    list_id: ID!
-    owner_id: ID!
+    name: String!
 }

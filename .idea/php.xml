@@ -139,13 +139,9 @@
       <path value="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat" />
       <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
       <path value="$PROJECT_DIR$/vendor/cakephp/chronos" />
-      <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
-      <path value="$PROJECT_DIR$/vendor/spatie/nova-tags-field" />
-      <path value="$PROJECT_DIR$/vendor/spatie/laravel-tags" />
-      <path value="$PROJECT_DIR$/vendor/spatie/eloquent-sortable" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpUnit">

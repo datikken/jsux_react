@@ -19,8 +19,6 @@
         "laravel/ui": "^3.2",
         "mll-lab/laravel-graphql-playground": "^2.5",
         "nuwave/lighthouse": "^5.3",
-        "spatie/laravel-tags": "^3.1",
-        "spatie/nova-tags-field": "^3.1",
         "symfony/dom-crawler": "^5.2"
     },
     "require-dev": {

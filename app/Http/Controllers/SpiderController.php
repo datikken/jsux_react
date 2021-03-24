@@ -5,45 +5,48 @@ namespace App\Http\Controllers;
 use Symfony\Component\DomCrawler\Crawler;
 use GuzzleHttp\Client;
 use App\Models\Article;
+use App\Models\Category;
 
 class SpiderController extends Controller
 {
-    public function index()
+    public function test()
     {
-        $linkToPars = 'https://www.30secondsofcode.org/js/t/algorithm/p/1';
+        $category = Category::where(['name' => 'algorithms'])->get();
+
+        $pagesCount = 3;
+        $linkToPars = 'https://www.30secondsofcode.org/js/t/algorithm/p/';
         $baseUrl = 'https://www.30secondsofcode.org';
-        $crawler = $this->create_crawler($linkToPars);
 
-        $links = $this->get_all_links($crawler);
-        $algorithmsLinks = [];
+        $all_articles_links_in_all_pages = [];
 
-        foreach($links as $link)
+        for($i=1; $i <= $pagesCount; $i++)
         {
-            if(str_contains($link['href'], 'js') && !str_contains($link['href'], 'http')) {
-                array_push($algorithmsLinks, $baseUrl . $link['href']);
-            }
-        }
-
-        $classToFind = '.snippet-card';
-        $allBlocks = [];
-
-        foreach ($algorithmsLinks as $link) {
+            $link = $linkToPars . $i;
             $crawler = $this->create_crawler($link);
-            $block = $this->get_block_by_class($crawler, $classToFind);
-            array_push($allBlocks,$block);
+            $articleLinks = $this->parse_list($crawler,'.list-card');
+
+            array_push($all_articles_links_in_all_pages, $articleLinks);
         }
 
-        foreach($allBlocks as $block) {
-            if(!is_null($block)) {
-                Article::create([
-                    'author_id' => 1,
-                    'title' => '',
-                    'content' => $block[0]
+
+        foreach($all_articles_links_in_all_pages as $page)
+        {
+            foreach ($page as $article)
+            {
+                $link = $baseUrl . $article['link'];
+                $crawler = $this->create_crawler($link);
+                $article_content = $this->parse_block($crawler, '.snippet-card');
+
+                $aticle = Article::create([
+                    'title'=> $article['title'],
+                    'description'=> $article['descr'],
+                    'content'=> $article_content[0],
+                    'author_id' => 1
                 ]);
+
+                $aticle->categories()->attach($category);
             }
         }
-
-        echo 'alldone';
     }
 
     public function create_crawler($link)
@@ -51,25 +54,33 @@ class SpiderController extends Controller
         $client = new Client();
         $res = $client->get($link);
         $text = $res->getBody()->getContents();
-        $crawler = new Crawler($text);
 
-        return $crawler;
+        return new Crawler($text);
     }
 
     public function get_all_links($crawler)
     {
-        $links = $crawler->filter('a')->each(function($node) {
+        return $crawler->filter('a')->each(function($node) {
             $href  = $node->attr('href');
             $title = $node->text();
 
             return compact('href', 'title');
         });
-
-        return $links;
     }
 
+    public function parse_list($crawler, $classToFind)
+    {
+        return $crawler->filter($classToFind)->each(function($node) {
+            $link = $node->filter('a')->attr('href');
+            $title = $node->filter('.card-title')->text();
+            $descr = $node->filter('.card-description')->text();
+            $tags = str_getcsv($node->filter('.card-subtitle')->text(), ',');
 
-    public function get_block_by_class($crawler, $classToFind)
+            return compact('link', 'title', 'descr','tags');
+        });
+    }
+
+    public function parse_block($crawler, $classToFind)
     {
         $block = $crawler->filter($classToFind)->each(function($node) {
             return $node->html();

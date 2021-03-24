@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class Article extends Model
 {
@@ -14,16 +16,18 @@ class Article extends Model
     protected $fillable = [
         'author_id',
         'title',
+        'description',
+        'tags',
         'content',
     ];
 
-    public function author(): BelongsTo
+    public function categories(): BelongsToMany
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsToMany(Category::class);
     }
 
-    public function comments(): HasMany
+    public function user(): BelongsTo
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 }
