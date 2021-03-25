@@ -140,6 +140,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpseclib/bcmath_compat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cakephp/chronos" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/brick/money_compare" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/skrtdev/async" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/skrtdev/novagram" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

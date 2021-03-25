@@ -19,6 +19,7 @@
         "laravel/ui": "^3.2",
         "mll-lab/laravel-graphql-playground": "^2.5",
         "nuwave/lighthouse": "^5.3",
+        "skrtdev/novagram": "^1.8",
         "symfony/dom-crawler": "^5.2"
     },
     "require-dev": {

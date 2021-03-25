@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d432c549b81a168a0b03ab23cfab861a",
+    "content-hash": "01cd52e91bee6f5c5c75259d7910b456",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3990,6 +3990,106 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "skrtdev/async",
+            "version": "v0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skrtdev/php-async.git",
+                "reference": "4f5a45be9044a054f556f61697bdec3cdb044d36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skrtdev/php-async/zipball/4f5a45be9044a054f556f61697bdec3cdb044d36",
+                "reference": "4f5a45be9044a054f556f61697bdec3cdb044d36",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "skrtdev\\async\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gaetano Sutera",
+                    "email": "gaetanosutera@yahoo.it",
+                    "role": "Developer"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/skrtdev/php-async/issues",
+                "source": "https://github.com/skrtdev/php-async/tree/v0.9"
+            },
+            "time": "2021-02-17T17:43:32+00:00"
+        },
+        {
+            "name": "skrtdev/novagram",
+            "version": "v1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skrtdev/NovaGram.git",
+                "reference": "b9d2edb25b8c164786f10140d6e7700fac50b3a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skrtdev/NovaGram/zipball/b9d2edb25b8c164786f10140d6e7700fac50b3a1",
+                "reference": "b9d2edb25b8c164786f10140d6e7700fac50b3a1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "monolog/monolog": "^2.1",
+                "php": ">=7.4",
+                "skrtdev/async": "~0.6"
+            },
+            "suggest": {
+                "ext-mbstring": "Needed to use the built-in Telegram Entites Parser",
+                "ext-pcntl": "Needed to process updates with multi-processing",
+                "ext-pdo": "Needed to use the built-in Database"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "skrtdev\\Telegram\\": [
+                        "src/Telegram/Types",
+                        "src/Telegram/Exceptions"
+                    ],
+                    "skrtdev\\NovaGram\\": "src/dc",
+                    "skrtdev\\": "src/"
+                },
+                "classmap": [
+                    "src/bc",
+                    "src/traits",
+                    "src/NovaGram/parser.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gaetano Sutera",
+                    "email": "gaetanosutera@yahoo.it",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An Object-Oriented PHP Library for Telegram Bots",
+            "support": {
+                "issues": "https://github.com/skrtdev/NovaGram/issues",
+                "source": "https://github.com/skrtdev/NovaGram/tree/v1.8"
+            },
+            "time": "2020-12-09T17:16:47+00:00"
         },
         {
             "name": "spatie/once",
