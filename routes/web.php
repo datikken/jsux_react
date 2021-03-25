@@ -9,7 +9,7 @@ use App\Http\Controllers\BotController;
 Route::get('/', [ReactController::class, 'index']);
 Route::get('/parse', [SpiderController::class, 'test']);
 Route::get('/test', [TestController::class, 'test']);
-Route::get('/testtg', [BotController::class, 'testbot']);
+Route::get('/testbot', [BotController::class, 'testbot']);
 
 Route::get('/{any}', [ReactController::class, 'index'])
     ->where('any', '(.*)')
