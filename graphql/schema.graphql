@@ -41,7 +41,7 @@ type Article {
     content: String!
     description: String!
     user: User! @belongsTo
-    category: [Category!]! @hasMany
+    categories: [Category!]! @hasMany
 }
 
 type Category {

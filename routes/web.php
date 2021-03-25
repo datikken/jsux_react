@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReactController;
 use App\Http\Controllers\SpiderController;
+use App\Http\Controllers\TestController;
 
 Route::get('/', [ReactController::class, 'index']);
-Route::get('/test', [SpiderController::class, 'test']);
+Route::get('/parse', [SpiderController::class, 'test']);
+Route::get('/test', [TestController::class, 'test']);
 
 Route::get('/{any}', [ReactController::class, 'index'])
     ->where('any', '(.*)')
