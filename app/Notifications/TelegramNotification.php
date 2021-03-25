@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
+use WeStacks\TeleBot\Laravel\TelegramNotification;
 
 class TelegramNotification extends Notification
 {
