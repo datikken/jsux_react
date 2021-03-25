@@ -12,6 +12,8 @@ type Query {
     user(id: ID @eq): User @find
     articles: [Article!]! @all
     article(id: Int! @eq): Article @find
+    category(id: Int! @eq): Category @find
+    categories: [Category!]! @all
 }
 
 type Mutation {
@@ -47,6 +49,7 @@ type Category {
     name: String!
     description: String!
     article: Article! @belongsTo
+    articles: [Article!]! @hasMany
 }
 
 type Tag {

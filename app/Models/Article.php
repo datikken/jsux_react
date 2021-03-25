@@ -21,7 +21,7 @@ class Article extends Model
         'content',
     ];
 
-    public function categories(): BelongsToMany
+    public function category(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
     }
