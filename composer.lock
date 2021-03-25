@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d432c549b81a168a0b03ab23cfab861a",
+    "content-hash": "aac4706c1f6744f0dd64698069234c17",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7018,6 +7018,65 @@
                 }
             ],
             "time": "2021-02-05T10:51:56+00:00"
+        },
+        {
+            "name": "westacks/telebot",
+            "version": "1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/westacks/telebot.git",
+                "reference": "c10aebe633b6bca95e167cdc246bd503d0f04221"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/westacks/telebot/zipball/c10aebe633b6bca95e167cdc246bd503d0f04221",
+                "reference": "c10aebe633b6bca95e167cdc246bd503d0f04221",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0 || ^7.0",
+                "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.5 || ^4.0 || ^5.0 || ^6.0",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "WeStacks\\TeleBot\\Laravel\\TeleBotServiceProvider"
+                    ],
+                    "aliases": {
+                        "TeleBot": "WeStacks\\TeleBot\\Laravel\\TeleBot"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WeStacks\\TeleBot\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PunyFlash",
+                    "email": "puny.flash@gmail.com",
+                    "homepage": "https://github.com/PunyFlash"
+                }
+            ],
+            "description": "Easy way to create Telegram-bots in PHP",
+            "homepage": "https://github.com/westacks/telebot",
+            "support": {
+                "issues": "https://github.com/westacks/telebot/issues",
+                "source": "https://github.com/westacks/telebot/tree/1.9.1"
+            },
+            "time": "2021-03-19T17:33:45+00:00"
         }
     ],
     "packages-dev": [
