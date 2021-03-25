@@ -9,6 +9,9 @@ const GEAT_ARTICLES = gql`
             id,
             title,
             description,
+            categories {
+                name
+            },
             user {
                 name
             }

@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
        return Category::create([
-            'name' => 'algorithms',
+            'name' => 'Algorithms',
             'description' => 'Everything you need to know'
         ]);
     }

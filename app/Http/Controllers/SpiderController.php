@@ -11,7 +11,7 @@ class SpiderController extends Controller
 {
     public function test()
     {
-        $category = Category::where(['name' => 'algorithms'])->get();
+        $category = Category::where(['name' => 'Algorithms'])->get();
 
         $pagesCount = 3;
         $linkToPars = 'https://www.30secondsofcode.org/js/t/algorithm/p/';
@@ -37,8 +37,10 @@ class SpiderController extends Controller
                 $crawler = $this->create_crawler($link);
                 $article_content = $this->parse_block($crawler, '.snippet-card');
 
+                $title = ucfirst(strtolower(preg_replace("([A-Z])", " $0", $article['title'])));
+
                 $aticle = Article::create([
-                    'title'=> $article['title'],
+                    'title'=> $title,
                     'description'=> $article['descr'],
                     'content'=> $article_content[0],
                     'author_id' => 1

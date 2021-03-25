@@ -45,28 +45,8 @@ F
 graphql/schema.graphql,5/b/5b71ac376d4142b5fc03e9de411546653bab5f3f
 O
 app/GraphQL/Mutations/Login.php,c/7/c79d84c0691f939d7cb493ff1c7c7caefe2168ec
-[
-+app/Http/Controllers/CardListController.php,1/f/1fa4b30432349b8cae978c1a2ecf8bba25f85497
-q
-Adatabase/migrations/2021_03_14_212759_create_card_lists_table.php,f/d/fde5926a28fde327e9f9f3faec9924ece0997d0d
-X
-(app/Http/Controllers/BoardController.php,d/0/d03d835ff1ac2279beccbdd600a3228a059c17c4
-C
-app/Models/Card.php,c/0/c08065036a917aab8cd6d9b3bb5c6d73962b1971
-G
-app/Models/CardList.php,4/8/48c36c93ba4f89db82356c8f4503a01bd3fee9d2
-m
-=database/migrations/2021_03_14_212737_create_boards_table.php,0/1/012a59500b8069bd283fcac65d19fe3320728af6
-P
- database/seeders/BoardSeeder.php,5/f/5f7d837def3e61589fa33bc96a597cab33ff11ef
-S
-#database/seeders/CardListSeeder.php,9/0/90670908545e7b8eb2aeb695cce07ffa498c4f29
-O
-database/seeders/CardSeeder.php,c/4/c4ec973d191db24b78fe82f38c0fc4066648dc0c
 K
 resources/js/graphql/Me.gql,4/f/4f045dca63e1a8e4c5576aafb79d2378648aef1f
-D
-app/Models/Board.php,1/2/1255bfa0114acf0f15c17bd93b737bae420965f2
 >
 config/app.php,7/3/734f7be25e8008acc7129e73cd116d5de913e6fd
 ?
@@ -93,8 +73,6 @@ C
 shell/post_merge.sh,8/3/838b892cba04f405749d668df63b0ffd90b97b6d
 =
 composer.json,3/9/3957b91a0d8450cea0115cfd5af69eac90d75897
-l
-<database/migrations/2021_03_14_213454_create_cards_table.php,7/f/7f78851c44a3a4b019e745b14637bd4844aacc95
 <
 .env.example,d/4/d4dae00d11854b35292c2b8a30515a9a0aa2d871
 L
@@ -134,3 +112,13 @@ C
 app/Http/Kernel.php,4/0/405f423e61f666bcedb754ae8befdce9e746176e
 \
 ,app/Http/Middleware/RedirectIfNotToAdmin.php,5/f/5fc8c3a49e3431a48c4e605062b4d43662fd0bf6
+B
+app/Models/Tag.php,6/7/67bed9c6b341ffef906e56b75e578712faaf3fa1
+G
+app/Models/Category.php,8/6/864be8882565a722c1930d76fab28162156cb798
+S
+#database/seeders/CategorySeeder.php,4/f/4f2ffdc91afc5a6c9fc655afec4275fe8fdbaa0d
+q
+Adatabase/migrations/2021_03_24_220022_create_categories_table.php,8/c/8c17008633879b023995b9ce3a635144e6d6ed5e
+w
+Gdatabase/migrations/2021_03_24_221826_create_article_category_table.php,2/9/292b1c3118261f84ccfb6b82a04786a87d5aecc7

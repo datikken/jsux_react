@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,7 +10,8 @@ import {Link} from 'react-router-dom'
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
-        marginBottom: '20px'
+        marginBottom: '20px',
+        paddingBottom: 0
     },
     bullet: {
         display: 'inline-block',
@@ -25,29 +26,48 @@ const useStyles = makeStyles({
     },
     prgf: {
         margin: 0
+    },
+    cat: {
+        marginTop: '.5rem'
+    },
+    catItem: {
+        marginRight: '.5rem'
+    },
+    link: {
+        color: '#fff',
+        textDecoration: 'none'
     }
 });
 
-export default function OutlinedCard({ article }) {
+export default function OutlinedCard({article}) {
     const classes = useStyles();
 
     return (
         <Card className={classes.root} variant="outlined">
             <CardContent>
-                <Typography className={classes.pos} color="textSecondary">
+                <Typography className={classes.title} color="textSecondary" gutterBottom>
                     {article.user.name}
                 </Typography>
-                <Typography className={classes.pos} variant="h5" component="h2">
+                <Typography variant="h5" component="h2">
                     {article.title}
                 </Typography>
-                <p className={classes.prgf}>
+                <Typography className={classes.pos} color="textSecondary">
+                    {article.categories.map(cat => (
+                        <span className={classes.catItem} key={cat.name}>
+                        {cat.name}
+                    </span>
+                    ))}
+                </Typography>
+                <Typography variant="body2" component="p">
                     {article.description}
-                </p>
+                </Typography>
             </CardContent>
             <CardActions>
-                <Link to={'/article/' + article.id}>
-                    <Button size="small">Learn More</Button>
-                </Link>
+                <Button variant="contained" color="primary" size="small">
+                    <Link className={classes.link} to={'/article/' + article.id}>
+                        Learn More
+                    </Link>
+                </Button>
             </CardActions>
         </Card>
     );
