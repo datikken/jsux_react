@@ -122,3 +122,11 @@ q
 Adatabase/migrations/2021_03_24_220022_create_categories_table.php,8/c/8c17008633879b023995b9ce3a635144e6d6ed5e
 w
 Gdatabase/migrations/2021_03_24_221826_create_article_category_table.php,2/9/292b1c3118261f84ccfb6b82a04786a87d5aecc7
+W
+'app/Http/Controllers/TestController.php,a/9/a949a951f257f4570132f0c03e4a9f5ba321fb31
+T
+$app/Providers/AppServiceProvider.php,4/8/48b8d8112e9bdd32ee7e25b1224d6739eece1e72
+V
+&app/Providers/RouteServiceProvider.php,d/4/d4febfd545b5694c9448dd8d6de9bf0531b0db61
+V
+&app/Http/Controllers/BotController.php,2/9/29c058d984dc611df7c20ea4db8a254b6e097222
