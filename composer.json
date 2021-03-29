@@ -20,7 +20,7 @@
         "mll-lab/laravel-graphql-playground": "^2.5",
         "nuwave/lighthouse": "^5.3",
         "symfony/dom-crawler": "^5.2",
-        "westacks/telebot": "^1.9"
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
