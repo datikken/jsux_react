@@ -130,3 +130,7 @@ V
 &app/Providers/RouteServiceProvider.php,d/4/d4febfd545b5694c9448dd8d6de9bf0531b0db61
 V
 &app/Http/Controllers/BotController.php,2/9/29c058d984dc611df7c20ea4db8a254b6e097222
+K
+app/Helpers/bad_request.php,c/8/c88e8d4359faeeb605d764286e5cf7b3f8dc1c88
+W
+'app/Providers/HelperServiceProvider.php,d/7/d75668fcbff34f169d77a45640043cebf1ffc25b

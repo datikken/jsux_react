@@ -8,11 +8,6 @@ class TestController extends Controller
 {
     public function test()
     {
-        $str = 'mkfaComeon';
 
-        $arr =
-//        $arr = explode(" ",trim($arr));
-
-        dump($arr);
     }
 }
