@@ -142,6 +142,8 @@
       <path value="$PROJECT_DIR$/vendor/brick/money_compare" />
       <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
       <path value="$PROJECT_DIR$/vendor/donatello-za/rake-php-plus" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/datikken/laravel_nova_boards" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4">

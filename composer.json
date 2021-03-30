@@ -21,7 +21,8 @@
         "laravel/ui": "^3.2",
         "mll-lab/laravel-graphql-playground": "^2.5",
         "nuwave/lighthouse": "^5.3",
-        "symfony/dom-crawler": "^5.2"
+        "symfony/dom-crawler": "^5.2",
+        "datikken/laravel_nova_boards": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -72,6 +73,10 @@
         {
             "type": "path",
             "url": "./nova"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/LaravelNovaBoards"
         }
     ]
 }

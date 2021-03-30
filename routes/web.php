@@ -9,6 +9,6 @@ Route::get('/', [ReactController::class, 'index']);
 Route::get('/parse', [SpiderController::class, 'test']);
 Route::get('/test', [TestController::class, 'test']);
 
-Route::get('/{any}', [ReactController::class, 'index'])
-    ->where('any', '(.*)')
-    ->middleware('not_admin');
+//Route::get('/{any}', [ReactController::class, 'index'])
+//    ->where('any', '(.*)')
+//    ->middleware('not_admin');
