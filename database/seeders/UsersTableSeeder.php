@@ -30,12 +30,6 @@ class UsersTableSeeder extends Seeder
             'password' => $password,
         ]);
 
-        for ($i = 0; $i < 10; ++$i) {
-            User::create([
-                'name'     => $faker->name,
-                'email'    => $faker->email,
-                'password' => $password,
-            ]);
-        }
+        User::factory()->count(10)->create();
     }
 }
